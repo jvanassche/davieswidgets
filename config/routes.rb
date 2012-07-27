@@ -1,4 +1,6 @@
 Widgets::Application.routes.draw do
+  resources :products
+
   resources :payment_methods
 
   resources :payments
