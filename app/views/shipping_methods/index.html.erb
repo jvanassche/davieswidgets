@@ -1,0 +1,23 @@
+<h1>Listing shipping_methods</h1>
+
+<table>
+  <tr>
+    <th>Shippingmethod</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shipping_methods.each do |shipping_method| %>
+  <tr>
+    <td><%= shipping_method.ShippingMethod %></td>
+    <td><%= link_to 'Show', shipping_method %></td>
+    <td><%= link_to 'Edit', edit_shipping_method_path(shipping_method) %></td>
+    <td><%= link_to 'Destroy', shipping_method, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Shipping method', new_shipping_method_path %>

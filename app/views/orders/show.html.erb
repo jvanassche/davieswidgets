@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customerid:</b>
+  <%= @order.CustomerID %>
+</p>
+
+<p>
+  <b>Employeeid:</b>
+  <%= @order.EmployeeID %>
+</p>
+
+<p>
+  <b>Orderdate:</b>
+  <%= @order.OrderDate %>
+</p>
+
+<p>
+  <b>Purchaseordernumber:</b>
+  <%= @order.PurchaseOrderNumber %>
+</p>
+
+<p>
+  <b>Shipdate:</b>
+  <%= @order.ShipDate %>
+</p>
+
+<p>
+  <b>Shippingmethodid:</b>
+  <%= @order.ShippingMethodID %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

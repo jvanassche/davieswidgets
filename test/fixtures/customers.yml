@@ -5,7 +5,7 @@ one:
   LastName: MyString
   BillingAddress1: MyString
   BillingAddress2: MyString
-  BillingCity: 
+  BillingCity: MyString
   BillingState: MyString
   BillingZip: MyString
   BillingPhone: MyString
@@ -21,7 +21,7 @@ two:
   LastName: MyString
   BillingAddress1: MyString
   BillingAddress2: MyString
-  BillingCity: 
+  BillingCity: MyString
   BillingState: MyString
   BillingZip: MyString
   BillingPhone: MyString

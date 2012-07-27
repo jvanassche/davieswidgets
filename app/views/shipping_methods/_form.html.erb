@@ -1,0 +1,21 @@
+<%= form_for(@shipping_method) do |f| %>
+  <% if @shipping_method.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shipping_method.errors.count, "error") %> prohibited this shipping_method from being saved:</h2>
+
+      <ul>
+      <% @shipping_method.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ShippingMethod %><br />
+    <%= f.text_field :ShippingMethod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

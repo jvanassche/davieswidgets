@@ -5,11 +5,11 @@ one:
   PaymentAmount: 1.5
   PaymentDate: 2012-07-27
   Status: MyString
-  PaymentMethodID: 
+  PaymentMethodID: 1
 
 two:
   OrderID: 1
   PaymentAmount: 1.5
   PaymentDate: 2012-07-27
   Status: MyString
-  PaymentMethodID: 
+  PaymentMethodID: 1

@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @customer.FirstName %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @customer.LastName %>
+</p>
+
+<p>
+  <b>Billingaddress1:</b>
+  <%= @customer.BillingAddress1 %>
+</p>
+
+<p>
+  <b>Billingaddress2:</b>
+  <%= @customer.BillingAddress2 %>
+</p>
+
+<p>
+  <b>Billingcity:</b>
+  <%= @customer.BillingCity %>
+</p>
+
+<p>
+  <b>Billingstate:</b>
+  <%= @customer.BillingState %>
+</p>
+
+<p>
+  <b>Billingzip:</b>
+  <%= @customer.BillingZip %>
+</p>
+
+<p>
+  <b>Billingphone:</b>
+  <%= @customer.BillingPhone %>
+</p>
+
+<p>
+  <b>Shipaddress1:</b>
+  <%= @customer.ShipAddress1 %>
+</p>
+
+<p>
+  <b>Shipaddress2:</b>
+  <%= @customer.ShipAddress2 %>
+</p>
+
+<p>
+  <b>Shipcity:</b>
+  <%= @customer.ShipCity %>
+</p>
+
+<p>
+  <b>Shipstate:</b>
+  <%= @customer.ShipState %>
+</p>
+
+<p>
+  <b>Shipzip:</b>
+  <%= @customer.ShipZip %>
+</p>
+
+<p>
+  <b>Shipphone:</b>
+  <%= @customer.ShipPhone %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

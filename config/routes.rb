@@ -1,4 +1,18 @@
 Widgets::Application.routes.draw do
+  resources :payment_methods
+
+  resources :payments
+
+  resources :shipping_methods
+
+  resources :order_details
+
+  resources :employees
+
+  resources :customers
+
+  resources :orders
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
