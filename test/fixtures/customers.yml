@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  FirstName: MyString
+  LastName: MyString
+  BillingAddress1: MyString
+  BillingAddress2: MyString
+  BillingCity: 
+  BillingState: MyString
+  BillingZip: MyString
+  BillingPhone: MyString
+  ShipAddress1: MyString
+  ShipAddress2: MyString
+  ShipCity: MyString
+  ShipState: MyString
+  ShipZip: MyString
+  ShipPhone: MyString
+
+two:
+  FirstName: MyString
+  LastName: MyString
+  BillingAddress1: MyString
+  BillingAddress2: MyString
+  BillingCity: 
+  BillingState: MyString
+  BillingZip: MyString
+  BillingPhone: MyString
+  ShipAddress1: MyString
+  ShipAddress2: MyString
+  ShipCity: MyString
+  ShipState: MyString
+  ShipZip: MyString
+  ShipPhone: MyString

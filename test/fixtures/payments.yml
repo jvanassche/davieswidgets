@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  OrderID: 1
+  PaymentAmount: 1.5
+  PaymentDate: 2012-07-27
+  Status: MyString
+  PaymentMethodID: 
+
+two:
+  OrderID: 1
+  PaymentAmount: 1.5
+  PaymentDate: 2012-07-27
+  Status: MyString
+  PaymentMethodID: 

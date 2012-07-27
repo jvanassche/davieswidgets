@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  CustomerID: 1
+  EmployeeID: 1
+  OrderDate: 2012-07-27
+  PurchaseOrderNumber: MyString
+  ShipDate: 2012-07-27
+  ShippingMethodID: 1
+
+two:
+  CustomerID: 1
+  EmployeeID: 1
+  OrderDate: 2012-07-27
+  PurchaseOrderNumber: MyString
+  ShipDate: 2012-07-27
+  ShippingMethodID: 1
