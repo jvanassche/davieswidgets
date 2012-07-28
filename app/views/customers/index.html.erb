@@ -2,48 +2,27 @@
 
 <table>
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Billingaddress1</th>
-    <th>Billingaddress2</th>
-    <th>Billingcity</th>
-    <th>Billingstate</th>
-    <th>Billingzip</th>
-    <th>Billingphone</th>
-    <th>Shipaddress1</th>
-    <th>Shipaddress2</th>
-    <th>Shipcity</th>
-    <th>Shipstate</th>
-    <th>Shipzip</th>
-    <th>Shipphone</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Billing Phone</th>
+    <th>Shipping Phone</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.FirstName %></td>
-    <td><%= customer.LastName %></td>
-    <td><%= customer.BillingAddress1 %></td>
-    <td><%= customer.BillingAddress2 %></td>
-    <td><%= customer.BillingCity %></td>
-    <td><%= customer.BillingState %></td>
-    <td><%= customer.BillingZip %></td>
+    <td><%= customer.FullName %></td>
     <td><%= customer.BillingPhone %></td>
-    <td><%= customer.ShipAddress1 %></td>
-    <td><%= customer.ShipAddress2 %></td>
-    <td><%= customer.ShipCity %></td>
-    <td><%= customer.ShipState %></td>
-    <td><%= customer.ShipZip %></td>
     <td><%= customer.ShipPhone %></td>
-    <td><%= link_to 'Show', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to image_tag('/widgets/images/show.png', :size => "16x16"), customer %></td>
+    <td><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_customer_path(customer) %></td>
+    <td><%= link_to image_tag('/widgets/images/delete.png', :size => "16x16"), customer, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+<tr><td colspan="6"><%= link_to 'Add New Customer', new_customer_path %></td></tr>
+
 </table>
 
 <br />
 
-<%= link_to 'New Customer', new_customer_path %>

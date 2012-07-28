@@ -1,75 +1,64 @@
 <p id="notice"><%= notice %></p>
+<table>
+<tr>
+<td>Customer Name:</td>
+<td><%= @customer.FullName %></td>
+</tr><tr>
+<td>Billing Phone</td>
+<td><%= @customer.BillingPhone %></td>
+</tr><tr>
+<td>Shipping Phone</td>
+<td><%= @customer.ShipPhone %></td>
+</tr><tr>
+<td>Billing Address</td>
+<td><%= @customer.BillingAddress1 %><br />
+    <%= @customer.BillingAddress2 %><br />
+    <%= "#{@customer.BillingCity}, #{@customer.BillingState} #{@customer.BillingZip}" %></td>
+</tr><tr>
+<td>Shipping Address</td>
+<td><%= @customer.ShipAddress1 %><br />
+    <%= @customer.ShipAddress2 %><br />
+    <%= "#{@customer.ShipCity}, #{@customer.ShipState} #{@customer.ShipZip}" %></td>
 
-<p>
-  <b>Firstname:</b>
-  <%= @customer.FirstName %>
-</p>
+</tr><tr>
+<td colspan="2"><%= link_to image_tag('/widgets/images/edit.png',:size => "16x16"), edit_customer_path(@customer) %>
+</table>
 
-<p>
-  <b>Lastname:</b>
-  <%= @customer.LastName %>
-</p>
+<br /><br />
+<table>
+<tr><th>Order History</th></tr>
+</table>
+<table>
+  <tr>
+    <th>Order Number</th>
+    <th>Employee Processor</th>
+    <th>Order Date</th>
+    <th>Purchase Order</th>
+    <th>Ship Date</th>
+    <th>Shipping Method</th>
+    <th></th><th></th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
 
-<p>
-  <b>Billingaddress1:</b>
-  <%= @customer.BillingAddress1 %>
-</p>
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= Employee.find(order.EmployeeID).FullName %></td>
+    <td><%= order.OrderDate %></td>
+    <td><%= order.PurchaseOrderNumber %></td>
+    <td><%= order.ShipDate %></td>
+    <td><%= (order.ShippingMethodID != nil ? ShippingMethod.find(order.ShippingMethodID).ShippingMethod : "" ) %></td>
 
-<p>
-  <b>Billingaddress2:</b>
-  <%= @customer.BillingAddress2 %>
-</p>
-
-<p>
-  <b>Billingcity:</b>
-  <%= @customer.BillingCity %>
-</p>
-
-<p>
-  <b>Billingstate:</b>
-  <%= @customer.BillingState %>
-</p>
-
-<p>
-  <b>Billingzip:</b>
-  <%= @customer.BillingZip %>
-</p>
-
-<p>
-  <b>Billingphone:</b>
-  <%= @customer.BillingPhone %>
-</p>
-
-<p>
-  <b>Shipaddress1:</b>
-  <%= @customer.ShipAddress1 %>
-</p>
-
-<p>
-  <b>Shipaddress2:</b>
-  <%= @customer.ShipAddress2 %>
-</p>
-
-<p>
-  <b>Shipcity:</b>
-  <%= @customer.ShipCity %>
-</p>
-
-<p>
-  <b>Shipstate:</b>
-  <%= @customer.ShipState %>
-</p>
-
-<p>
-  <b>Shipzip:</b>
-  <%= @customer.ShipZip %>
-</p>
-
-<p>
-  <b>Shipphone:</b>
-  <%= @customer.ShipPhone %>
-</p>
+    <td></td><td></td>
+    <td><%= link_to image_tag('/widgets/images/show.png', :size => "16x16"), order %></td>
+    <td><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_order_path(order) %></td>
+    <td><%= link_to image_tag('/widgets/images/delete.png', :size => "16x16"), order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
 
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
+
 <%= link_to 'Back', customers_path %>

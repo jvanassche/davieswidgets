@@ -9,6 +9,6 @@
 <body>
 
 <%= yield %>
-<p><%= link_to_unless_current( 'Home','/widgets/' ) {""} %></p>
+<p><%= link_to('Go Back',url_for(:back)) %> | <%=  link_to_unless_current( 'Home','/widgets/' ) {""} %></p>
 </body>
 </html>

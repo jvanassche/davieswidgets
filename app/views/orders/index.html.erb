@@ -1,5 +1,5 @@
 <h1>Listing orders</h1>
-
+<h4>Click the view icon to see order details for that order.</h4>
 <table>
   <tr>
     <th>Order Number</th>
@@ -9,25 +9,26 @@
     <th>Purchase Order</th>
     <th>Ship Date</th>
     <th>Shipping Method</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th></th><th></th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%= link_to order.id, {:controller => "order_details", :action => "details_by_order_id", :OrderID => order.id} %></td>
-    <td><%= Customer.find(order.CustomerID).FirstName + " " + Customer.find(order.CustomerID).LastName %></td>
-    <td><%= Employee.find(order.EmployeeID).FirstName + " " + Employee.find(order.CustomerID).LastName %></td>
+    <td><%= order.id %></td>
+    <td><%= Customer.find(order.CustomerID).FullName %></td>
+    <td><%= Employee.find(order.EmployeeID).FullName %></td>
     <td><%= order.OrderDate %></td>
     <td><%= order.PurchaseOrderNumber %></td>
     <td><%= order.ShipDate %></td>
-    <td><%= if order.ShippingMethodID != nil
-	 ShippingMethod.find(order.ShippingMethodID).ShippingMethod
-	 end %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= (order.ShippingMethodID != nil ? ShippingMethod.find(order.ShippingMethodID).ShippingMethod : "" ) %></td>
+    
+    <td></td><td></td>
+    <td><%= link_to image_tag('/widgets/images/show.png', :size => "16x16"), order %></td>
+    <td><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_order_path(order) %></td>
+    <td><%= link_to image_tag('/widgets/images/delete.png', :size => "16x16"), order, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -24,11 +24,15 @@ table {
 	border: 1px solid;
   	border-spacing:0;
   	border-collapse:collapse;
-	text-align: justify;
 }
 
+th {
+	text-align: center;
+	}
+
 td {
-	padding: 7px 10px 7px 10px;
+	padding: 7px 15px 7px 15px;
+	text-align: left;
 	}
 
 
@@ -42,11 +46,19 @@ tr:nth-child(even) {
 	}
 tr:nth-child(1) {
         background-color: #EFEFEF;
-        /*text-align: left;*/
 	}
 
-table tr td a {
-    display:block;
-    height:100%;
-    width:100%;
-}		
+tr:hover {
+    /*background-color: steelblue;*/
+}
+
+tr:nth-child(1):hover {
+	background-color: #EFEFEF;
+}
+
+table tr td a:hover {
+	background-color: lightsteelblue;
+	height: 100%;
+	width: 100%;
+}
+			

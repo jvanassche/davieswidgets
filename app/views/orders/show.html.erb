@@ -1,35 +1,61 @@
 <p id="notice"><%= notice %></p>
+<table>
+<tr>
+<td><b>Customer:</b></td>
+<td> <%= Customer.find(@order.CustomerID).FullName %></td>
+</tr><tr>
+<td><b>Employee Processor:</b></td>
+<td><%= Employee.find(@order.EmployeeID).FullName %></td>
+</tr><tr>
+<td><b>Order Date:</b></td>
+<td><%= @order.OrderDate %></td>
+</tr><tr>
+<td><b>Purchase Order:</b></td>
+<td><%= @order.PurchaseOrderNumber %></td>
+</tr><tr>
+<td><b>Shipdate:</b></td>
+<td><%= @order.ShipDate %></td>
+</tr><tr>
+<td><b>Shipping Method:</b></td>
+<td><%= ShippingMethod.find(@order.ShippingMethodID).ShippingMethod %></td>
+</tr>
+<tr><td colspan="2"><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_order_path(@order) %> </td></tr>
+</table>
+<br><br><br>
 
-<p>
-  <b>Customerid:</b>
-  <%= @order.CustomerID %>
-</p>
+<table>
+  <tr><th>Order Details</th></tr>
+</table>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Discout %</th>
+    <th>Final Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Employeeid:</b>
-  <%= @order.EmployeeID %>
-</p>
+<% @order_details.each do |order_detail| %>
+  <tr>
+    <td><%= Product.find(order_detail.ProductID).ProductName %></td>
+    <td><%= order_detail.Quantity %></td>
+    <td><%= sprintf("$%0.02f", order_detail.UnitPrice) %></td>
+    <td><%= order_detail.Discout %></td>
+    <td><%= sprintf("$%0.02f", order_detail.FinalPrice) %></td>
+    <td></td>
+    <td><%= link_to image_tag('/widgets/images/edit.png',:size => "16x16"), edit_order_detail_path(order_detail) %></td>
+    <td><%= link_to  image_tag('/widgets/images/delete.png',:size => "16x16"), order_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+<tr>
+<td colspan="8">
+<%= link_to 'Add Item to Order', new_order_detail_path %>
+</td>
+</tr>
+</table>
+<br />
 
-<p>
-  <b>Orderdate:</b>
-  <%= @order.OrderDate %>
-</p>
-
-<p>
-  <b>Purchaseordernumber:</b>
-  <%= @order.PurchaseOrderNumber %>
-</p>
-
-<p>
-  <b>Shipdate:</b>
-  <%= @order.ShipDate %>
-</p>
-
-<p>
-  <b>Shippingmethodid:</b>
-  <%= @order.ShippingMethodID %>
-</p>
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
