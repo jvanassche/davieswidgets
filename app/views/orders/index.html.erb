@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>Customerid</th>
-    <th>Employeeid</th>
-    <th>Orderdate</th>
-    <th>Purchaseordernumber</th>
-    <th>Shipdate</th>
-    <th>Shippingmethodid</th>
+    <th>Customer</th>
+    <th>Employee Processor</th>
+    <th>Order Date</th>
+    <th>Purchase Order</th>
+    <th>Ship Date</th>
+    <th>Shipping Method</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +15,12 @@
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%= order.CustomerID %></td>
-    <td><%= order.EmployeeID %></td>
+    <td><%= Customer.find(order.CustomerID).FirstName + " " + Customer.find(order.CustomerID).LastName %></td>
+    <td><%= Employee.find(order.EmployeeID).FirstName + " " + Employee.find(order.CustomerID).LastName %></td>
     <td><%= order.OrderDate %></td>
     <td><%= order.PurchaseOrderNumber %></td>
     <td><%= order.ShipDate %></td>
-    <td><%= order.ShippingMethodID %></td>
+    <td><%= ShippingMethod.find(order.ShippingMethodID).ShippingMethod %></td>
     <td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>

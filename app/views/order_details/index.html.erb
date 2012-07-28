@@ -2,11 +2,11 @@
 
 <table>
   <tr>
-    <th>Orderid</th>
-    <th>Productid</th>
+    <th>Order ID</th>
+    <th>Product</th>
     <th>Quantity</th>
-    <th>Unitprice</th>
-    <th>Discout</th>
+    <th>Unit Price</th>
+    <th>Discout %</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
 <% @order_details.each do |order_detail| %>
   <tr>
     <td><%= order_detail.OrderID %></td>
-    <td><%= order_detail.ProductID %></td>
+    <td><%= Product.find(order_detail.ProductID).ProductName %></td>
     <td><%= order_detail.Quantity %></td>
     <td><%= order_detail.UnitPrice %></td>
     <td><%= order_detail.Discout %></td>

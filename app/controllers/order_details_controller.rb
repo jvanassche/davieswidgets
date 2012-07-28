@@ -3,6 +3,7 @@ class OrderDetailsController < ApplicationController
   # GET /order_details.json
   def index
     @order_details = OrderDetail.all
+    @products = Product.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class OrderDetailsController < ApplicationController
   # GET /order_details/1.json
   def show
     @order_detail = OrderDetail.find(params[:id])
+    @products = Product.all
 
     respond_to do |format|
       format.html # show.html.erb

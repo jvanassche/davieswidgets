@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <b>Productid:</b>
-  <%= @order_detail.ProductID %>
+  <b>Product:</b>
+  <%= Product.find(@order_detail.ProductID).ProductName %>
 </p>
 
 <p>
