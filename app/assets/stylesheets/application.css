@@ -11,3 +11,37 @@
  *= require_self
  *= require_tree .
 */
+
+h1 {
+	font-family:"Calibri", "Verdana", Sans-serif;
+	font-size:3em;
+	font-weight:bolder;
+	font-variant:small-caps;
+	}
+
+
+table {
+	border: 1px solid;
+  	border-spacing:0;
+  	border-collapse:collapse;
+	text-align: justify;
+}
+
+td {
+	padding: 7px 10px 7px 10px;
+	}
+
+
+tr:nth-child(odd) {
+	background-color: #EEEEFF;
+	border: 1px solid;
+	}
+
+tr:nth-child(even) {
+	background-color: #FFFFFF;
+	}
+tr:nth-child(1) {
+        background-color: #EFEFEF;
+        /*text-align: left;*/
+	}
+		
