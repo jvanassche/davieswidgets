@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :CustomerID %><br />
-    <%= f.number_field :CustomerID %>
+    <%= f.label 'Customer' %><br />
+    <%= collection_select(:order, :CustomerID, Customer.all, :id, :FullName, {:prompt => true} ) %>
   </div>
   <div class="field">
-    <%= f.label :EmployeeID %><br />
-    <%= f.number_field :EmployeeID %>
+    <%= f.label 'Employee Processor' %><br />
+    <%= collection_select(:order, :EmployeeID, Employee.all, :id, :FullName, {:prompt => true} ) %>
   </div>
   <div class="field">
     <%= f.label :OrderDate %><br />
@@ -32,9 +32,9 @@
     <%= f.date_select :ShipDate %>
   </div>
   <div class="field">
-    <%= f.label :ShippingMethodID %><br />
-    <%= f.number_field :ShippingMethodID %>
-  </div>
+    <%= f.label 'Shipping Method' %><br />
+    <%= collection_select(:order, :ShippingMethodID, ShippingMethod.all, :id, :ShippingMethod, {:prompt => true} ) %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

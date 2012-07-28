@@ -44,4 +44,9 @@ tr:nth-child(1) {
         background-color: #EFEFEF;
         /*text-align: left;*/
 	}
-		
+
+table tr td a {
+    display:block;
+    height:100%;
+    width:100%;
+}		

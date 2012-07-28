@@ -82,4 +82,24 @@ class OrderDetailsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def details_by_order_id
+   # @order_detail = OrderDetail.find(1)
+   # @products = Product.all
+
+   # respond_to do |format|
+   #   format.html # details_by_order_id.html.erb
+   #   format.json { render json: @order_detail }
+    
+    @order_details = OrderDetail.where("OrderID = ?",params[:OrderID]).all
+    @products = Product.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @order_details }
+    end
+
+
+  end
+   
 end

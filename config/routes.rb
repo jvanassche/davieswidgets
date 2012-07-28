@@ -11,7 +11,11 @@ Widgets::Application.routes.draw do
 
   resources :shipping_methods
 
-  resources :order_details
+  resources :order_details do
+	collection do
+		get 'details_by_order_id', :action => 'details_by_order_id'
+	end
+  end
 
   resources :employees
 
