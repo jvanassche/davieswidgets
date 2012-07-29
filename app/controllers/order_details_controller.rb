@@ -101,5 +101,13 @@ class OrderDetailsController < ApplicationController
 
 
   end
+
+  def update_cost
+
+  cost = (params[:id] != -1 || params[:id] != nil ? Product.find(params[:id]).UnitPrice : "q ")
+  render :partial => "cost", :locals => { :cost => cost }
+
+
+  end
    
 end

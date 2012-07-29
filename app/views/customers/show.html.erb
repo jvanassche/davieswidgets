@@ -21,7 +21,7 @@
     <%= "#{@customer.ShipCity}, #{@customer.ShipState} #{@customer.ShipZip}" %></td>
 
 </tr><tr>
-<td colspan="2"><%= link_to image_tag('/widgets/images/edit.png',:size => "16x16"), edit_customer_path(@customer) %>
+<td colspan="2"><%= imgLink('edit.png',"16x16",edit_customer_path(@customer)) %>
 </table>
 
 <br /><br />
@@ -52,9 +52,9 @@
     <td><%= (order.ShippingMethodID != nil ? ShippingMethod.find(order.ShippingMethodID).ShippingMethod : "" ) %></td>
 
     <td></td><td></td>
-    <td><%= link_to image_tag('/widgets/images/show.png', :size => "16x16"), order %></td>
-    <td><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_order_path(order) %></td>
-    <td><%= link_to image_tag('/widgets/images/delete.png', :size => "16x16"), order, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= imgLink('show.png',"16x16", order) %></td>
+    <td><%= imgLink('edit.png',"16x16",edit_order_path(order)) %></td>
+    <td><%= imgLink('delete.png',"16x16", order, confirm: 'Are you sure?', method: :delete) %></td>
   </tr>
 <% end %>
 </table>

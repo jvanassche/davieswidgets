@@ -3,6 +3,6 @@ class OrderDetail < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
   def FinalPrice
-	(self.Discout != nil ? self.UnitPrice - (self.UnitPrice * (self.Discout / 100)) : self.UnitPrice)
+	(self.Discout != nil ? (self.UnitPrice - (self.UnitPrice * (self.Discout / 100))) * self.Quantity : self.UnitPrice * self.Quantity)
   end
 end

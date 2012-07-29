@@ -15,9 +15,9 @@
     <td><%= customer.FullName %></td>
     <td><%= customer.BillingPhone %></td>
     <td><%= customer.ShipPhone %></td>
-    <td><%= link_to image_tag('/widgets/images/show.png', :size => "16x16"), customer %></td>
-    <td><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_customer_path(customer) %></td>
-    <td><%= link_to image_tag('/widgets/images/delete.png', :size => "16x16"), customer, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= imgLink('show.png',"16x16", customer) %></td>
+    <td><%= imgLink('edit.png',"16x16", edit_customer_path(customer)) %></td>
+    <td><%= imgLink('delete.png',"16x16", customer, confirm: 'Are you sure?', method: :delete) %></td>
   </tr>
 <% end %>
 <tr><td colspan="6"><%= link_to 'Add New Customer', new_customer_path %></td></tr>

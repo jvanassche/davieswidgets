@@ -5,6 +5,25 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+  // when the #country field changes
+  $("#order_detail_ProductID").change(function() {
+    // make a POST call and replace the content
+    var prod_id = $('select#order_detail_ProductID :selected').val();
+    if(prod_id == "") prod_id="-1";
+    jQuery.get('/widgets/order_details/update_cost/' + prod_id, function(data){
+        $("#costdiv").html(data);
+    })
+    return false;
+  });
+
+})
+
+</script>
+
 </head>
 <body>
 

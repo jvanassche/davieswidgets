@@ -16,6 +16,7 @@ Widgets::Application.routes.draw do
 		get 'details_by_order_id', :action => 'details_by_order_id'
 	end
   end
+	match 'order_details/update_cost/:id', :controller=> 'order_details', :action=> 'update_cost'
 
   resources :employees
 

@@ -12,26 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :OrderID %><br />
-    <%= f.number_field :OrderID %>
+    <%= f.label "Order Number:" %><br />
+   <b> <%= (params[:OrderID] == nil ? f.number_field(:OrderID)  :  f.number_field(:OrderID, :value => params[:OrderID], :hidden => true) + "#{params[:OrderID]}" ) %></b>
   </div>
   <div class="field">
-    <%= f.label :ProductID %><br />
-    <%= f.number_field :ProductID %>
+    <%= f.label "Product" %><br />
+    <%= collection_select(:order_detail, :ProductID, Product.all, :id, :ProductName, {:prompt => true} ) %>
   </div>
   <div class="field">
     <%= f.label :Quantity %><br />
     <%= f.number_field :Quantity %>
   </div>
   <div class="field">
-    <%= f.label :UnitPrice %><br />
-    <%= f.text_field :UnitPrice %>
+    <%= f.label "Unit Price: " %>
+  
+    <div id="costdiv">
+    <%= render :partial => 'cost' %>
+   </div>
+
   </div>
   <div class="field">
-    <%= f.label :Discout %><br />
+    <%= f.label :Discount %><br />
     <%= f.text_field :Discout %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(:value => "Add Item to Order") %>
   </div>
 <% end %>
+

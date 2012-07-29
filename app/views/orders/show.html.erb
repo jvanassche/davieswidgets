@@ -19,7 +19,7 @@
 <td><b>Shipping Method:</b></td>
 <td><%= ShippingMethod.find(@order.ShippingMethodID).ShippingMethod %></td>
 </tr>
-<tr><td colspan="2"><%= link_to image_tag('/widgets/images/edit.png', :size => "16x16"), edit_order_path(@order) %> </td></tr>
+<tr><td colspan="2"><%= imgLink('edit.png',"16x16",edit_order_path(@order)) %> </td></tr>
 </table>
 <br><br><br>
 
@@ -32,7 +32,7 @@
     <th>Quantity</th>
     <th>Unit Price</th>
     <th>Discout %</th>
-    <th>Final Price</th>
+    <th>Total Price</th>
     <th></th>
     <th></th>
     <th></th>
@@ -46,13 +46,13 @@
     <td><%= order_detail.Discout %></td>
     <td><%= sprintf("$%0.02f", order_detail.FinalPrice) %></td>
     <td></td>
-    <td><%= link_to image_tag('/widgets/images/edit.png',:size => "16x16"), edit_order_detail_path(order_detail) %></td>
-    <td><%= link_to  image_tag('/widgets/images/delete.png',:size => "16x16"), order_detail, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= imgLink('edit.png',"16x16",edit_order_detail_path(order_detail) + "?OrderID=#{@order.id}") %></td>
+    <td><%= imgLink('delete.png',"16x16",order_detail, confirm: 'Are you sure?', method: :delete) %></td>
   </tr>
 <% end %>
 <tr>
 <td colspan="8">
-<%= link_to 'Add Item to Order', new_order_detail_path %>
+<%= link_to 'Add Item to Order', new_order_detail_path + "?OrderID=#{@order.id}" %>
 </td>
 </tr>
 </table>
