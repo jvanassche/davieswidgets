@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   belongs_to :employee, :foreign_key => 'EmployeeID'
   belongs_to :shipping_method, :foreign_key => 'ShippingMethodID'
   validates_associated :customer, :employee
+  validates :OrderDate, :SalesTaxRate, :presence => true
+  validates :SalesTaxRate, :numericality => true
   validate :customer_id_exists
         def customer_id_exists
                 if Customer.find_by_id(self.CustomerID).nil?

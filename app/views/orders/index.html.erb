@@ -7,6 +7,7 @@
     <th>Employee Processor</th>
     <th>Order Date</th>
     <th>Purchase Order</th>
+    <th>Sales Tax Rate</th>
     <th>Ship Date</th>
     <th>Shipping Method</th>
     <th></th><th></th>
@@ -22,6 +23,7 @@
     <td><%= Employee.find(order.EmployeeID).FullName %></td>
     <td><%= order.OrderDate %></td>
     <td><%= order.PurchaseOrderNumber %></td>
+    <td><%= order.SalesTaxRate %></td>
     <td><%= order.ShipDate %></td>
     <td><%= (order.ShippingMethodID != nil ? ShippingMethod.find(order.ShippingMethodID).ShippingMethod : "" ) %></td>
     
