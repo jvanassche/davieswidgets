@@ -34,9 +34,11 @@
 </table>
 <br><br><br>
 
-<table>
-  <tr><th>Order Details</th></tr>
+<table onclick="toggle_visibility('detailstable');">
+  <tr><th>Order Details (Click to Show/Hide)</th></tr>
 </table>
+
+<div id="detailstable" style="display:none;">
 <table>
   <tr>
     <th>Product</th>
@@ -54,7 +56,7 @@
     <td><%= Product.find(order_detail.ProductID).ProductName %></td>
     <td><%= order_detail.Quantity %></td>
     <td><%= sprintf("$%0.02f", order_detail.UnitPrice) %></td>
-    <td><%=  sprintf("%0.02f%",order_detail.Discount) %></td>
+    <td><%=  ( order_detail.Discount != nil ? sprintf("%0.02f%",order_detail.Discount) : "" ) %></td>
     <td><%= sprintf("$%0.02f", order_detail.FinalPrice) %></td>
     <td></td>
     <td><%= imgLink('edit.png',"16x16",edit_order_detail_path(order_detail) + "?OrderID=#{@order.id}") %></td>
@@ -67,9 +69,11 @@
 </td>
 </tr>
 </table>
+</div>
 <br />
 
-<table><tr><th>Order Payments</th></tr></table>
+<table onclick="toggle_visibility('paymentstable');"><tr><th>Order Payments (Click to Show/Hide)</th></tr></table>
+<div id="paymentstable" style="display:none;">
 <table>
   <tr>
     <th>Payment Amount</th>
@@ -92,7 +96,7 @@
 <tr><td colspan="6"><%= link_to 'Add Payment to Order', new_payment_path + "?OrderID=#{@order.id}" %>
 
 </table>
-
-
+</div>
+<br />
 
 <%= link_to 'Back', orders_path %>
