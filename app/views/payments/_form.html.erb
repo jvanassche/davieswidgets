@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :OrderID %><br />
-    <%= f.number_field :OrderID %>
-  </div>
+ <%= f.label "Order Number:" %><br />
+   <b> <%= (params[:OrderID] == nil ? f.number_field(:OrderID)  :  f.number_field(:OrderID, :value => params[:OrderID], :hidden => true) + "#{params[:OrderID]}" ) %></b>  
+</div>
   <div class="field">
     <%= f.label :PaymentAmount %><br />
     <%= f.text_field :PaymentAmount %>
@@ -28,8 +28,10 @@
     <%= f.text_field :Status %>
   </div>
   <div class="field">
-    <%= f.label :PaymentMethodID %><br />
-    <%= f.number_field :PaymentMethodID %>
+    <%= f.label 'Payment Method' %><br />
+    <%= collection_select(:payment, :PaymentMethodID, PaymentMethod.all, :id, :PaymentMethod, {:prompt => true} ) %>
+
+
   </div>
   <div class="actions">
     <%= f.submit %>

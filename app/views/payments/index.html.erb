@@ -2,26 +2,26 @@
 
 <table>
   <tr>
-    <th>Orderid</th>
-    <th>Paymentamount</th>
-    <th>Paymentdate</th>
+    <th>Order</th>
+    <th>Payment Amount</th>
+    <th>Payment Date</th>
     <th>Status</th>
-    <th>Paymentmethodid</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Payment Method</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @payments.each do |payment| %>
   <tr>
     <td><%= payment.OrderID %></td>
-    <td><%= payment.PaymentAmount %></td>
+    <td><%= sprintf("$%0.02f", payment.PaymentAmount) %></td>
     <td><%= payment.PaymentDate %></td>
     <td><%= payment.Status %></td>
-    <td><%= payment.PaymentMethodID %></td>
-    <td><%= link_to 'Show', payment %></td>
-    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= PaymentMethod.find(payment.PaymentMethodID).PaymentMethod %></td>
+    <td><%= imgLink('show.png',"16x16", payment) %></td>
+    <td><%= imgLink('edit.png',"16x16", edit_payment_path(payment) + "?OrderID=#{payment.OrderID}") %></td>
+    <td><%= imgLink('delete.png',"16x16", payment, confirm: 'Are you sure?', method: :delete) %></td>
   </tr>
 <% end %>
 </table>

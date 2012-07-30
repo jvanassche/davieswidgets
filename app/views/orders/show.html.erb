@@ -14,13 +14,13 @@
 <td><%= @order.PurchaseOrderNumber %></td>
 </tr><tr>
 <td><b>Order Sub-Total:</b></td>
-<td><%= "$#{@order.order_total}" %></td>
+<td><%= sprintf("$%0.02f", @order.order_total) %></td>
 </tr><tr>
 <td><b>Sales Tax Rate:</b></td>
-<td><%= "#{@order.SalesTaxRate}%" %></td>
+<td><%= sprintf("%0.02f%", @order.SalesTaxRate) %></td>
 </tr><tr>
 <td><b>Order Total:</b></td>
-<td><%= "$#{(@order.order_total) + (@order.order_total * (@order.SalesTaxRate / 100))}" %></td>
+<td><%= sprintf("$%0.02f", (@order.order_total) + (@order.order_total * (@order.SalesTaxRate / 100))) %></td>
 </tr><tr>
 
 <td><b>Ship Date:</b></td>
@@ -45,8 +45,8 @@
     <th>Discount %</th>
     <th>Total Price</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @order_details.each do |order_detail| %>
@@ -54,7 +54,7 @@
     <td><%= Product.find(order_detail.ProductID).ProductName %></td>
     <td><%= order_detail.Quantity %></td>
     <td><%= sprintf("$%0.02f", order_detail.UnitPrice) %></td>
-    <td><%= order_detail.Discount %></td>
+    <td><%=  sprintf("%0.02f%",order_detail.Discount) %></td>
     <td><%= sprintf("$%0.02f", order_detail.FinalPrice) %></td>
     <td></td>
     <td><%= imgLink('edit.png',"16x16",edit_order_detail_path(order_detail) + "?OrderID=#{@order.id}") %></td>
@@ -68,5 +68,31 @@
 </tr>
 </table>
 <br />
+
+<table><tr><th>Order Payments</th></tr></table>
+<table>
+  <tr>
+    <th>Payment Amount</th>
+    <th>Payment Date</th>
+    <th>Status</th>
+    <th>Payment Method</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<% Payment.where("OrderID = ?",@order.id).each do |payment| %>
+  <tr>
+    <td><%=  sprintf("$%0.02f", payment.PaymentAmount)  %></td>
+    <td><%= payment.PaymentDate %></td>
+    <td><%= payment.Status %></td>
+    <td><%= PaymentMethod.find(payment.PaymentMethodID).PaymentMethod %></td>
+    <td><%= imgLink('edit.png',"16x16", edit_payment_path(payment) + "?OrderID=#{payment.OrderID}") %></td>
+    <td><%= imgLink('delete.png',"16x16", payment, confirm: 'Are you sure?', method: :delete) %></td>
+  </tr>
+<% end %>
+<tr><td colspan="6"><%= link_to 'Add Payment to Order', new_payment_path + "?OrderID=#{@order.id}" %>
+
+</table>
+
+
 
 <%= link_to 'Back', orders_path %>

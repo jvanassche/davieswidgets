@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Orderid:</b>
+  <b>Order:</b>
   <%= @payment.OrderID %>
 </p>
 
 <p>
-  <b>Paymentamount:</b>
+  <b>Payment Amount:</b>
   <%= @payment.PaymentAmount %>
 </p>
 
 <p>
-  <b>Paymentdate:</b>
+  <b>Payment Date:</b>
   <%= @payment.PaymentDate %>
 </p>
 
@@ -21,10 +21,10 @@
 </p>
 
 <p>
-  <b>Paymentmethodid:</b>
-  <%= @payment.PaymentMethodID %>
+  <b>Payment Method:</b>
+  <%= PaymentMethod.find(@payment.PaymentMethodID).PaymentMethod %>
 </p>
 
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Edit', edit_payment_path(@payment) + "?OrderID=#{@payment.OrderID}" %> |
 <%= link_to 'Back', payments_path %>
