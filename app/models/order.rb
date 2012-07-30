@@ -14,14 +14,12 @@ class Order < ActiveRecord::Base
                         errors.add(:base, "Invalid Customer Specified.")
                 end
         end
-
   validate :employee_id_exists
         def employee_id_exists
                 if Employee.find_by_id(self.EmployeeID).nil?
                         errors.add(:base, "Invalid Employee Specified")
                 end
         end
-
   validate :shipping_id_exists
         def shipping_id_exists
                 if ShippingMethod.find_by_id(self.ShippingMethodID).nil? && self.ShippingMethodID != nil
@@ -29,7 +27,13 @@ class Order < ActiveRecord::Base
                 end
         end
 
-
+   def order_total
+	total = 0
+	OrderDetail.where("OrderID = ?", self.id).each do |i|
+		total += i.FinalPrice
+   	end
+	return total
+   end
 
  
 end

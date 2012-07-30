@@ -13,16 +13,24 @@
 <td><b>Purchase Order:</b></td>
 <td><%= @order.PurchaseOrderNumber %></td>
 </tr><tr>
-<td><b>Sales Tax Rate:</b></td>
-<td><%= @order.SalesTaxRate %></td>
+<td><b>Order Sub-Total:</b></td>
+<td><%= "$#{@order.order_total}" %></td>
 </tr><tr>
+<td><b>Sales Tax Rate:</b></td>
+<td><%= "#{@order.SalesTaxRate}%" %></td>
+</tr><tr>
+<td><b>Order Total:</b></td>
+<td><%= "$#{(@order.order_total) + (@order.order_total * (@order.SalesTaxRate / 100))}" %></td>
+</tr><tr>
+
 <td><b>Ship Date:</b></td>
 <td><%= @order.ShipDate %></td>
 </tr><tr>
 <td><b>Shipping Method:</b></td>
 <td><%= ( @order.ShippingMethodID != nil ? ShippingMethod.find(@order.ShippingMethodID).ShippingMethod : "" ) %></td>
+</tr><tr>
+<td colspan="2"><%= imgLink('edit.png',"16x16",edit_order_path(@order)) %> </td>
 </tr>
-<tr><td colspan="2"><%= imgLink('edit.png',"16x16",edit_order_path(@order)) %> </td></tr>
 </table>
 <br><br><br>
 
