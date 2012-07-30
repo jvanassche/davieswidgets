@@ -1,4 +1,4 @@
 class PaymentMethod < ActiveRecord::Base
   attr_accessible :PaymentMethod
-  belongs_to :payment
+  has_one :payment
 end

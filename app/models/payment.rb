@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
   attr_accessible :OrderID, :PaymentAmount, :PaymentDate, :PaymentMethodID, :Status
-  has_many :payment_methods
-  belongs_to :order
+  belongs_to :payment_method, foreign_key => 'PaymentMethodID'
+  belongs_to :order, foreign_key => 'OrderID'
 
 end

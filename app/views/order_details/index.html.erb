@@ -6,7 +6,7 @@
     <th>Product</th>
     <th>Quantity</th>
     <th>Unit Price</th>
-    <th>Discout %</th>
+    <th>Discount %</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +18,7 @@
     <td><%= Product.find(order_detail.ProductID).ProductName %></td>
     <td><%= order_detail.Quantity %></td>
     <td><%= order_detail.UnitPrice %></td>
-    <td><%= order_detail.Discout %></td>
+    <td><%= order_detail.Discount %></td>
     <td><%= link_to 'Show', order_detail %></td>
     <td><%= link_to 'Edit', edit_order_detail_path(order_detail) %></td>
     <td><%= link_to 'Destroy', order_detail, confirm: 'Are you sure?', method: :delete %></td>
