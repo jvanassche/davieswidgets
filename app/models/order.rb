@@ -34,6 +34,22 @@ class Order < ActiveRecord::Base
    	end
 	return total
    end
+   def order_total_with_tax
+	total = self.order_total + (self.order_total * (self.SalesTaxRate / 100))
+	return total
+  end
+
+  def payment_total
+	payment_total = 0
+	Payment.where("OrderID = ?", self.id).each do |i|
+		payment_total += i.PaymentAmount
+	end
+	return payment_total
+  end
+
+  def amount_owed
+      return self.order_total_with_tax - self.payment_total
+  end
 
  
 end

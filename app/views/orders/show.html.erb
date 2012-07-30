@@ -20,8 +20,15 @@
 <td><%= sprintf("%0.02f%", @order.SalesTaxRate) %></td>
 </tr><tr>
 <td><b>Order Total:</b></td>
-<td><%= sprintf("$%0.02f", (@order.order_total) + (@order.order_total * (@order.SalesTaxRate / 100))) %></td>
+<td><%= sprintf("$%0.02f", @order.order_total_with_tax) %></td>
 </tr><tr>
+<td><b>Total Payments Received:</b></td>
+<td><%= sprintf("$%0.02f", @order.payment_total) %></td>
+</tr><tr>
+<td><b>Amount Owed:</b></td>
+<td><%= sprintf("$%0.02f", @order.amount_owed) %></td>
+</tr><tr>
+
 
 <td><b>Ship Date:</b></td>
 <td><%= @order.ShipDate %></td>
