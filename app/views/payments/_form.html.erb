@@ -29,7 +29,8 @@
   </div>
   <div class="field">
     <%= f.label 'Payment Method' %><br />
-    <%= collection_select(:payment, :PaymentMethodID, PaymentMethod.all, :id, :PaymentMethod, {:prompt => true} ) %>
+    <%= collection_select(:payment, :PaymentMethodID, PaymentMethod.all, :id, :PaymentMethod, {:prompt => true} ) %><br />
+    <%= link_to 'Manage Payment Methods', payment_methods_path(:OrderID => params[:OrderID], :payment => @payment.id) %>
 
 
   </div>

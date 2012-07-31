@@ -11,9 +11,9 @@
 <% @payment_methods.each do |payment_method| %>
   <tr>
     <td><%= payment_method.PaymentMethod %></td>
-    <td><%= link_to 'Show', payment_method %></td>
-    <td><%= link_to 'Edit', edit_payment_method_path(payment_method) %></td>
-    <td><%= link_to 'Destroy', payment_method, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', payment_method_path(payment_method,params)  %></td>
+    <td><%= link_to 'Edit', edit_payment_method_path(payment_method,params) %></td>
+    <td><%= link_to 'Destroy', payment_method_path(payment_method,params), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -21,3 +21,7 @@
 <br />
 
 <%= link_to 'New Payment method', new_payment_method_path %>
+
+<br />
+
+<%= link_to 'Back', (params[:payment].nil? || params[:payment] == "" ? new_payment_path(params) : "/widgets/payments/#{params[:payment]}/edit" ) %>

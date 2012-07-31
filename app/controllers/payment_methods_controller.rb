@@ -44,7 +44,7 @@ class PaymentMethodsController < ApplicationController
 
     respond_to do |format|
       if @payment_method.save
-        format.html { redirect_to @payment_method, notice: 'Payment method was successfully created.' }
+        format.html { redirect_to payment_method_path(@payment_method,:OrderID=>params[:OrderID], :payment=>params[:payment]), notice: 'Payment method was successfully created.' }
         format.json { render json: @payment_method, status: :created, location: @payment_method }
       else
         format.html { render action: "new" }
@@ -76,7 +76,7 @@ class PaymentMethodsController < ApplicationController
     @payment_method.destroy
 
     respond_to do |format|
-      format.html { redirect_to payment_methods_url }
+      format.html { redirect_to payment_methods_url(:OrderID=>params[:OrderID],:payment=>params[:payment]) }
       format.json { head :no_content }
     end
   end

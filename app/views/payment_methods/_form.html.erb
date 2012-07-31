@@ -14,8 +14,12 @@
   <div class="field">
     <%= f.label :PaymentMethod %><br />
     <%= f.text_field :PaymentMethod %>
+    <%= hidden_field_tag 'OrderID', params[:OrderID] %>
+    <%= hidden_field_tag 'payment', params[:payment] %>
+
   </div>
   <div class="actions">
-    <%= f.submit %>
+
+  <%= f.submit %>
   </div>
 <% end %>

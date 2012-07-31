@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Orderid:</b>
+  <b>Order ID:</b>
   <%= @order_detail.OrderID %>
 </p>
 
@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <b>Unitprice:</b>
+  <b>Unit Price:</b>
   <%= @order_detail.UnitPrice %>
 </p>
 
@@ -27,4 +27,4 @@
 
 
 <%= link_to 'Edit', edit_order_detail_path(@order_detail) %> |
-<%= link_to 'Back', order_details_path %>
+<%= link_to 'Back', "/widgets/orders/#{@order_detail.OrderID}" %>

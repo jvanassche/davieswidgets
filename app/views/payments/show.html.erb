@@ -27,4 +27,4 @@
 
 
 <%= link_to 'Edit', edit_payment_path(@payment) + "?OrderID=#{@payment.OrderID}" %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Back', "/widgets/orders/#{@payment.OrderID}" %>

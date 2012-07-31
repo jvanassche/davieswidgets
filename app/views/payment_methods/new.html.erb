@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', payment_methods_path %>
+<%= link_to 'Back', ( params[:payment].nil? ? "/widgets/payments/new?OrderID=#{params[:OrderID]}" : "/widgets/payments/#{params[:payment]}/edit?OrderID=#{params[:OrderID]}" ) %>
