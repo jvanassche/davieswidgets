@@ -2,20 +2,24 @@
 
 <table>
   <tr>
-    <th>Productname</th>
-    <th>Unitprice</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Product Name</th>
+    <th>Unit Price</th>
+    <th>Unit Cost</th>
+    <th>Quantity on Hand</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @products.each do |product| %>
   <tr>
     <td><%= product.ProductName %></td>
     <td><%= product.UnitPrice %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= product.UnitCost %></td>
+    <td><%= product.Quantity %></td>
+    <td><%= imgLink( 'show.png',"16x16", product) %></td>
+    <td><%= imgLink 'edit.png',"16x16", edit_product_path(product) %></td>
+    <td><%= imgLink 'delete.png',"16x16", product, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
