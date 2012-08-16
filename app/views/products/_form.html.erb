@@ -20,10 +20,7 @@
     <%= f.text_field :UnitPrice %>
   </div>
 
- <div class="field">
-    <%= f.label 'Unit Cost' %><br />
-    <%= f.text_field :UnitCost %>
-  </div>
+    <%= f.hidden_field :UnitCost, :value => '0' %>
  <div class="field">
     <%= f.label 'Quantity on Hand' %><br />
     <%= f.text_field :Quantity %>

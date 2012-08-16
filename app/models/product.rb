@@ -9,4 +9,12 @@ class Product < ActiveRecord::Base
   def change_quantity(quantityChange)
 	this.Quantity = this.Quantity + quantityChange
   end
+  
+  def update_cost
+     this.UnitCost = 0;
+     @components = Component.where("ProductID = ?",this.id)
+     @components.each do |component|
+       this.UnitCost += component.UnitCost
+     end
+  end
 end

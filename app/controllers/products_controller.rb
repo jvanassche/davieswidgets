@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-
+    @product.update_cost
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
