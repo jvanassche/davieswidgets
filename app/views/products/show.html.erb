@@ -26,19 +26,22 @@
 <tr>
 <th>Component</th>
 <th>Component Cost</th>
+<th>Quantity of Component</th>
 <th>Edit</th>
 <th>Delete</th>
 </tr>
 
 <% @components.each do |component| %>
+<% @schematic = Schematic.where("ProductID = ? AND ComponentID = ?",@product.id, component.id) %>
 <tr>
    <td><%= component.Name %></td>
    <td><%= component.UnitCost %></td>
-   <td><%= imgLink('edit.png',"16x16", edit_component_path(component) + "?ProductID=#{component.ProductID}") %></td>
-   <td><%= imgLink('delete.png',"16x16", component, confirm: 'Are you sure?', method: :delete) %></td>
+   <td><%= @schematic.first.Quantity %></td>
+   <td><%= imgLink('edit.png',"16x16", edit_schematic_path(@schematic.first) + "?ProductID=#{@product.id}") %></td>
+   <td><%= imgLink('delete.png',"16x16", @schematic.first, confirm: 'Are you sure?', method: :delete) %></td>
 </tr>
 <% end %>
-<tr><td colspan="4"><%= link_to 'Add Component to Product', new_component_path + "?ProductID=#{@product.id}" %></td></tr>
+<tr><td colspan="4"><%= link_to 'Add Component to Product', new_schematic_path + "?ProductID=#{@product.id}" %></td></tr>
 </table>
 </div>
 <%= link_to 'Edit', edit_product_path(@product) %> |
