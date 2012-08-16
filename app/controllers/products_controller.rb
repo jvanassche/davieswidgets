@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @products.each do |product|
+	product.update_cost
+    end 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @product.update_cost
     @schematics = Schematic.where("ProductID = ?",params[:id])
     component_ids = Array.new
     @schematics.each do |schematic|
@@ -40,6 +44,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    @product.update_cost
   end
 
   # POST /products
@@ -62,7 +67,7 @@ class ProductsController < ApplicationController
   # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
-
+    @product.update_cost 
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
