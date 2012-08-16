@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
   
   def update_cost
      self.UnitCost = 0;
-     @components = Component.where("ProductID = ?",self.id)
+     (self.id.null? ? return : @components = Component.where("ProductID = ?",self.id) )
      @components.each do |component|
        self.UnitCost += component.UnitCost
      end
