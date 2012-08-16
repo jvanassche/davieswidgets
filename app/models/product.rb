@@ -7,12 +7,12 @@ class Product < ActiveRecord::Base
   has_many :order_detail
   
   def change_quantity(quantityChange)
-	self.Quantity = this.Quantity + quantityChange
+	self.Quantity = self.Quantity + quantityChange
   end
   
   def update_cost
      self.UnitCost = 0;
-     @components = Component.where("ProductID = ?",this.id)
+     @components = Component.where("ProductID = ?",self.id)
      @components.each do |component|
        self.UnitCost += component.UnitCost
      end
