@@ -1,0 +1,31 @@
+<h1>Listing components</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Unitcost</th>
+    <th>Quantityonhand</th>
+    <th>Re-order At Quantity</th>
+    <th>Supplier</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @components.each do |component| %>
+  <tr>
+    <td><%= component.Name %></td>
+    <td><%= component.UnitCost %></td>
+    <td><%= component.QuantityOnHand %></td>
+    <td><%= component.ReorderQuantity %></td>
+    <td><%= component.Supplier %></td>
+    <td><%= link_to 'Show', component %></td>
+    <td><%= link_to 'Edit', edit_component_path(component) %></td>
+    <td><%= link_to 'Destroy', component, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Component', new_component_path %>

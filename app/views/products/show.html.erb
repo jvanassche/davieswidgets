@@ -21,5 +21,19 @@
 </p>
 
 
+<table>
+<tr>
+<th>Component</th>
+<th>Component Cost</th>
+</tr>
+
+<% @components.each do |component| %>
+<tr>
+   <td><%= component.Name %></td>
+   <td><%= component.UnitCost %></td>
+</tr>
+<% end %>
+</table>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

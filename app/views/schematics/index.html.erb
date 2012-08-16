@@ -1,0 +1,27 @@
+<h1>Listing schematics</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Component</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schematics.each do |schematic| %>
+  <tr>
+    <td><%= Product.find(schematic.ProductID).ProductName %></td>
+    <td><%= Component.find(schematic.ComponentID).Name %></td>
+    <td><%= schematic.Quantity %></td>
+    <td><%= link_to 'Show', schematic %></td>
+    <td><%= link_to 'Edit', edit_schematic_path(schematic) %></td>
+    <td><%= link_to 'Destroy', schematic, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Schematic', new_schematic_path %>

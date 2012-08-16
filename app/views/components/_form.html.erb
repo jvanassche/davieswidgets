@@ -1,0 +1,39 @@
+<%= form_for(@component) do |f| %>
+  <% if @component.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@component.errors.count, "error") %> prohibited this component from being saved:</h2>
+
+      <ul>
+      <% @component.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br />
+    <%= f.text_field :Name %>
+  </div>
+  <div class="field">
+    <%= f.label :UnitCost %><br />
+    <%= f.text_field :UnitCost %>
+  </div>
+  <div class="field">
+    <%= f.label :QuantityOnHand %><br />
+    <%= f.number_field :QuantityOnHand %>
+  </div>
+<div class="field">
+    <%= f.label 'Re-order If Quantity is Below:' %><br />
+    <%= f.number_field :ReorderQuantity %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :Supplier %><br />
+    <%= f.text_field :Supplier %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

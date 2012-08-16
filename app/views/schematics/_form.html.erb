@@ -1,0 +1,30 @@
+<%= form_for(@schematic) do |f| %>
+  <% if @schematic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schematic.errors.count, "error") %> prohibited this schematic from being saved:</h2>
+
+      <ul>
+      <% @schematic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'Product' %><br />
+    <%= collection_select(:schematic, :ProductID, Product.all, :id, :ProductName, {:prompt => true} ) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Component' %> <br />
+    <%= collection_select(:schematic, :ComponentID, Component.all, :id, :Name, {:prompt => true} ) %>
+  </div>
+ <div class="field">
+    <%= f.label :Quantity %><br />
+    <%= f.number_field :Quantity %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

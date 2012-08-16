@@ -14,7 +14,12 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+    @schematics = Schematic.where("ProductID = ?",params[:id])
+    component_ids = Array.new
+    @schematics.each do |schematic|
+	component_ids << schematic.ComponentID
+    end
+    @components = Component.where(:id => component_ids)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }

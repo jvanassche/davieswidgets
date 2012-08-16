@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @component.Name %>
+</p>
+
+<p>
+  <b>Unit Cost:</b>
+  <%= @component.UnitCost %>
+</p>
+
+<p>
+  <b>Quantity on hand:</b>
+  <%= @component.QuantityOnHand %>
+</p>
+
+
+<p>
+  <b>Reorder at Quantity:</b>
+  <%= @component.ReorderQuantity %>
+</p>
+
+
+<p>
+  <b>Supplier:</b>
+  <%= @component.Supplier %>
+</p>
+
+
+<%= link_to 'Edit', edit_component_path(@component) %> |
+<%= link_to 'Back', components_path %>

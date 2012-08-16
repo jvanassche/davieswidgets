@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Productid:</b>
+  <%= @schematic.ProductID %>
+</p>
+
+<p>
+  <b>Componentid:</b>
+  <%= @schematic.ComponentID %>
+</p>
+<p>
+  <b>Quantity:</b>
+  <%= @schematic.Quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_schematic_path(@schematic) %> |
+<%= link_to 'Back', schematics_path %>

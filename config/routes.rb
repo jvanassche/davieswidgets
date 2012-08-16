@@ -1,4 +1,8 @@
 Widgets::Application.routes.draw do
+  resources :schematics
+
+  resources :components
+
   get "home/index"
 
   root :to => "home#index"

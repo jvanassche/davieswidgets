@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Name: MyString
+  UnitCost: 1.5
+  QuantityOnHand: 1
+  Supplier: MyString
+
+two:
+  Name: MyString
+  UnitCost: 1.5
+  QuantityOnHand: 1
+  Supplier: MyString

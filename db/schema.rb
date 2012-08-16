@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809202945) do
+ActiveRecord::Schema.define(:version => 20120816184246) do
+
+  create_table "components", :force => true do |t|
+    t.string   "Name"
+    t.float    "UnitCost"
+    t.integer  "QuantityOnHand"
+    t.string   "Supplier"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "ReorderQuantity"
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "FirstName"
@@ -85,6 +95,14 @@ ActiveRecord::Schema.define(:version => 20120809202945) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.float    "UnitCost"
+    t.integer  "Quantity"
+  end
+
+  create_table "schematics", :force => true do |t|
+    t.integer  "ProductID"
+    t.integer  "ComponentID"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "Quantity"
   end
 

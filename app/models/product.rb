@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   validates :Quantity, :numericality => {:only_integer => true}
 
   has_many :order_detail
-
+  
   def change_quantity(quantityChange)
 	this.Quantity = this.Quantity + quantityChange
   end
