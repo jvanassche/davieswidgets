@@ -41,7 +41,7 @@
    <td><%= imgLink('delete.png',"16x16", @schematic.first, confirm: 'Are you sure?', method: :delete) %></td>
 </tr>
 <% end %>
-<tr><td colspan="4"><%= link_to 'Add Component to Product', new_schematic_path + "?ProductID=#{@product.id}" %></td></tr>
+<tr><td colspan="5"><%= link_to 'Add Component to Product', new_schematic_path + "?ProductID=#{@product.id}" %></td></tr>
 </table>
 </div>
 <%= link_to 'Edit', edit_product_path(@product) %> |

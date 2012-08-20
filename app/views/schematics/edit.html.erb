@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @schematic %> |
-<%= link_to 'Back', schematics_path %>
+<%= ( params[:ProductID].nil? ? link_to('Back', schematics_path) : link_to('Back', "/widgets/products/#{params[:ProductID]}") ) %>
+

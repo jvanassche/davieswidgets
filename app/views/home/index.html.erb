@@ -1,9 +1,29 @@
-<h1>Home</h1>
-<ol>
+<h1>Davies Widgets Business Management</h1>
+<table cellpadding="10" border=1>
+<tr>
+<th>Manage Customers and Orders</th>
+<th>Manage Products and Components</th>
+<th>Manage Employees</th>
+</tr>
+<tr>
+<td>
+<ul>
 <li><%= link_to 'Customers', customers_path %></li>
-<li><%= link_to 'Employees', employees_path %></li>
+<br>
 <li><%= link_to 'Orders', orders_path %></li>
-<li><%= link_to 'Products', products_path %></li>
-</ol>
+</ul>
+</td><td>
+<ul>
+<li><%= link_to 'Finished Production Items', products_path %></li>
+<br>
+<li><%= link_to 'Production Components',components_path %></li>
+</ul>
+</td><td>
+<ul>
+<li><%= link_to 'Employees', employees_path %></li>
+</ul>
+</td>
+</tr>
+</table>
 
 

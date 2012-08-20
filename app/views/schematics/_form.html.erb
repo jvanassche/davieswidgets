@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label 'Product' %><br />
-    <%= collection_select(:schematic, :ProductID, Product.all, :id, :ProductName, {:prompt => true} ) %>
+    <%= (params[:ProductID].nil? ? collection_select(:schematic, :ProductID, Product.all, :id, :ProductName, {:prompt => true} ) : f.number_field(:ProductID, :value => params[:ProductID], :hidden => true) + "#{Product.find(params[:ProductID]).ProductName}") %>
+
   </div>
   <div class="field">
     <%= f.label 'Component' %> <br />
