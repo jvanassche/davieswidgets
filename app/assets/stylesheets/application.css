@@ -27,12 +27,13 @@ table {
 }
 
 th {
-	text-align: center;
+	text-align: left;
+	 padding: 7px 15px 7px 15px;
 	}
 
 td {
 	padding: 7px 15px 7px 15px;
-	text-align: left;
+       /*text-align: left;*/
 	}
 
 
@@ -92,4 +93,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f00', end
 			1px 1px 0 black
 			/*5px 4px 4px darkgray*/;
 
-}			
+}	
+

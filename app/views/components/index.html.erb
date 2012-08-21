@@ -7,9 +7,9 @@
     <th>Quantityonhand</th>
     <th>Re-order At Quantity</th>
     <th>Supplier</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
 <% @components.each do |component| %>
@@ -19,9 +19,9 @@
     <td><%= component.QuantityOnHand %></td>
     <td><%= component.ReorderQuantity %></td>
     <td><%= component.Supplier %></td>
-    <td><%= link_to 'Show', component %></td>
-    <td><%= link_to 'Edit', edit_component_path(component) %></td>
-    <td><%= link_to 'Destroy', component, confirm: 'Are you sure?', method: :delete %></td>
+    <td style="text-align:center;"><%= imgLink('show.png',"16x16",component) %></td>
+    <td style="text-align:center;"><%= imgLink('edit.png',"16x16",edit_component_path(component)) %></td>
+    <td style="text-align:center;"><%= imgLink('delete.png',"16x16",component, confirm: 'Are you sure?', method: :delete) %></td>
   </tr>
 <% end %>
 </table>
